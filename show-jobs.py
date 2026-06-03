@@ -1,7 +1,7 @@
 jobs = []
 
 def show_jobs():
-    return jobss
+    return jobs
 
 
 def add_task():
