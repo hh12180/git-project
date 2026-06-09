@@ -1,1 +1,27 @@
 
+name: Python Code CI Checker
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test-environment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. Pulling Your GitHub Code
+      uses: actions/checkout@v4
+
+    - name: 2. Booting Up Python 3.10
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: 3. Testing Python App Execution
+      run: |
+        echo "Starting automated integration check..."
+        python -m compileall .
+        echo "Success! Your Python files are free of syntax crashes."
